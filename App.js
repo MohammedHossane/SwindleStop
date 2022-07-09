@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 // Import our custom components
 import Profile from "./Tabs/Profile";
-import Colleges from "./Tabs/Colleges";
+import Map from "./Tabs/Map";
 
 import { StyleSheet, Text, View } from "react-native";
 
@@ -16,8 +16,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tabs.Navigator>
-        <Tabs.Screen name="Colleges" component={Colleges} />
         <Tabs.Screen name="Profile" component={Profile} />
+        <Tabs.Screen name="Map" component={Map} />
       </Tabs.Navigator>
     </NavigationContainer>
   );
