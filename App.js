@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Profile from "./Tabs/Profile";
 import Map from "./Tabs/Map";
 
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 // Create an instance of Bottom Tab navigator
 const Tabs = createBottomTabNavigator();
@@ -16,8 +16,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tabs.Navigator>
-        <Tabs.Screen name="Profile" component={Profile} />
-        <Tabs.Screen name="Map" component={Map} />
+        <Tabs.Screen name="Profile" component={Profile} options={{tabBarIcon: () => 
+          (<Image source={require('./assets/Group42.jpg')} style={{ width: 32, height: 32 }}/>)}} />
+        <Tabs.Screen name="Map" component={Map} options={{tabBarIcon: () => 
+          (<Image source={require('./assets/Variant3.jpg')} style={{ width: 32, height: 32 }}/>)}} />
       </Tabs.Navigator>
     </NavigationContainer>
   );
@@ -31,3 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+// https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBSS0O17zdL_oCDLTKS67aDph6BWwCxgV4&center=47.66670827132002,-122.3844921033355&zoom=13&format=png&maptype=roadmap&style=feature:administrative.land_parcel%7Celement:labels%7Cvisibility:off&style=feature:poi%7Celement:labels.text%7Cvisibility:off&style=feature:poi.business%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:road.local%7Celement:labels%7Cvisibility:off&style=feature:transit%7Cvisibility:off&size=480x360
