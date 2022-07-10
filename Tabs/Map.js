@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MapView from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import * as Location from 'expo-location';
 
@@ -55,7 +55,28 @@ export default function Map() {
         showsUserLocation={true}
         initialRegion={mapRegion}
         customMapStyle={mapStyle}
-      />}
+      >
+        <Marker coordinate = {{latitude: 34.039660,longitude: -118.378700}}
+         pinColor = {"red"} // any color
+         title={"Angel's House"}
+         description={"This is where Angel lives."}/>  
+
+         <Marker coordinate = {{latitude: 34.033080,longitude: -118.292020}}
+         pinColor = {"lightblue"} // any color
+         title={"76 Gas Station"}
+         description={"Pump #2, beware"}/>  
+
+         <Marker coordinate = {{latitude: 34.035740,longitude: -118.291230}}
+         pinColor = {"lightblue"} // any color
+         title={"Cheveron Gas Station"}
+         description={"Pump #7, beware"}/>  
+
+         <Marker coordinate = {{latitude: 34.017810,longitude: -118.292020}}
+         pinColor = {"lightblue"} // any color
+         title={"ARCO Gas Station"}
+         description={"Pump #5, beware"}/>  
+
+      </MapView>}
     </View>
   );
 }

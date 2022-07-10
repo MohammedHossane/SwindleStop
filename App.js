@@ -11,11 +11,12 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 // Create an instance of Bottom Tab navigator
 const Tabs = createBottomTabNavigator();
+// const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tabs.Navigator>
+      <Tabs.Navigator initialRouteName="Map">
         <Tabs.Screen name="Profile" component={Profile} options={{tabBarIcon: () => 
           (<Image source={require('./assets/Group42.jpg')} style={{ width: 32, height: 32 }}/>)}} />
         <Tabs.Screen name="Map" component={Map} options={{tabBarIcon: () => 
@@ -24,6 +25,19 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// export default function Stack() {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator initialRouteName="Map">
+//         <Stack.Screen name="Profile" component={Profile} options={{tabBarIcon: () => 
+//           (<Image source={require('./assets/Group42.jpg')} style={{ width: 32, height: 32 }}/>)}} />
+//         <Stack.Screen name="Map" component={Map} options={{tabBarIcon: () => 
+//           (<Image source={require('./assets/Variant3.jpg')} style={{ width: 32, height: 32 }}/>)}} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
 
 const styles = StyleSheet.create({
   container: {
