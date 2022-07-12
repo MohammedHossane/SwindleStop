@@ -6,6 +6,8 @@ import { Ionicons } from "@expo/vector-icons";
 // Import our custom components
 import Profile from "./Tabs/Profile";
 import Map from "./Tabs/Map";
+// ui kit
+import { NativeBaseProvider, Box } from "native-base";
 
 import { StyleSheet, Text, View, Image } from "react-native";
 
@@ -15,6 +17,7 @@ const Tabs = createBottomTabNavigator();
 
 export default function App() {
   return (
+    <NativeBaseProvider>
     <NavigationContainer>
       <Tabs.Navigator initialRouteName="Map">
         <Tabs.Screen name="Profile" component={Profile} options={{tabBarIcon: () => 
@@ -23,6 +26,7 @@ export default function App() {
           (<Image source={require('./assets/Variant3.jpg')} style={{ width: 32, height: 32 }}/>)}} />
       </Tabs.Navigator>
     </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
