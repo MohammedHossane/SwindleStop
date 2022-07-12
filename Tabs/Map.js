@@ -56,10 +56,10 @@ export default function Map() {
         initialRegion={mapRegion}
         customMapStyle={mapStyle}
       >
-        <Marker coordinate = {{latitude: 34.039660,longitude: -118.378700}}
+        {/* <Marker coordinate = {{latitude: 34.039660,longitude: -118.378700}}
          pinColor = {"red"} // any color
          title={"Angel's House"}
-         description={"This is where Angel lives."}/>  
+         description={"This is where Angel lives."}/>   */}
 
          <Marker coordinate = {{latitude: 34.033080,longitude: -118.292020}}
          pinColor = {"lightblue"} // any color

@@ -22,16 +22,17 @@ export default function App() {
       <Tabs.Navigator initialRouteName="Map">
         <Tabs.Screen name="Profile" component={Profile} options={{tabBarIcon: () => 
           (<Image source={require('./assets/Group42.jpg')} style={{ width: 32, height: 32 }}/>)}} />
-        <Tabs.Screen name="Map" component={Map} options={{tabBarIcon: () => 
+        <Tabs.Screen  name = "Map" component={Map} options={{tabBarIcon: () => 
           (<Image source={require('./assets/Variant3.jpg')} style={{ width: 32, height: 32 }}/>)}} />
       </Tabs.Navigator>
     </NavigationContainer>
-    </NativeBaseProvider>,
-     <NativeBaseProvider>
-     <Center flex={1} px="3">
-         <Example />
-     </Center>
-   </NativeBaseProvider>
+    <Example/>
+    </NativeBaseProvider>
+  //    <NativeBaseProvider>
+  //    <Center flex={1} px="3">
+  //        <Example />
+  //    </Center>
+  //  </NativeBaseProvider>
   );
 }
 
@@ -69,17 +70,17 @@ function Example() {
   } = useDisclose();
   return <>
 
-      <Actionsheet isOpen={true} onClose={onClose}>
+      <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
         <Actionsheet.Content>
-          <Box w="100%" h={60} px={4} justifyContent="center">
+          <Box w="100%" h={.00001} px={4} justifyContent="center">
             <Text fontSize="16" color="gray.500" _dark={{
             color: 'gray.300'
           }}>
               
             </Text>
           </Box>
-          <Actionsheet.Item>Map</Actionsheet.Item>
-          <Actionsheet.Item>Share</Actionsheet.Item>
+          <Actionsheet.Item>Scan</Actionsheet.Item>
+          <Actionsheet.Item>Report</Actionsheet.Item>
         </Actionsheet.Content>
       </Actionsheet>
     </>;
