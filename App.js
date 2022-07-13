@@ -28,7 +28,7 @@ export default function App() {
           (<Image source={require('./assets/Group42.jpg')} style={{ width: 32, height: 32 }}/>)}} />
       </Tabs.Navigator>
     </NavigationContainer>
-   </NativeBaseProvider>
+    </NativeBaseProvider>
   );
 }
 
@@ -54,26 +54,26 @@ const styles = StyleSheet.create({
 
 // import { Button, Actionsheet, useDisclose, Center } from 'native-base';
 
-// function Example() {
-//   const {
-//     isOpen,
-//     onOpen,
-//     onClose
-//   } = useDisclose();
-//   return <>
+function Example() {
+  const {
+    isOpen,
+    onOpen,
+    onClose
+  } = useDisclose();
+  return <>
 
-//       <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
-//         <Actionsheet.Content>
-//           <Box w="100%" h={40} px={4} justifyContent="center">
-//             <Text fontSize="16" color="gray.500" _dark={{
-//             color: 'gray.300'
-//           }}>
+      <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
+        <Actionsheet.Content>
+          <Box w="100%" h={40} px={4} justifyContent="center">
+            <Text fontSize="16" color="gray.500" _dark={{
+            color: 'gray.300'
+          }}>
               
-//             </Text>
-//           </Box>
-//           <Actionsheet.Item>Scan</Actionsheet.Item>
-//           <Actionsheet.Item>Report</Actionsheet.Item>
-//         </Actionsheet.Content>
-//       </Actionsheet>
-//     </>;
-// }
+            </Text>
+          </Box>
+          <Actionsheet.Item>Scan</Actionsheet.Item>
+          <Actionsheet.Item>Report</Actionsheet.Item>
+        </Actionsheet.Content>
+      </Actionsheet>
+    </>;
+ }
