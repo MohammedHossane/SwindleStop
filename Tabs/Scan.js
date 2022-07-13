@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Profile() {
+export default function Scan() {
   return (
     <View style={styles.container}>
-      <Text> Hello from Profile</Text>
+      <Text> Hello from Scan</Text>
       {/* <Image source={} /> */}
       {/* <StatusBar style="auto" /> */}
     </View>
