@@ -1,20 +1,57 @@
-import { StyleSheet, Text, View } from "react-native";
+import * as React from 'react';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import {
+  Button,
+  Portal,
+  Dialog,
+  RadioButton,
+  TouchableRipple,
+} from 'react-native-paper';
+import { TextComponent } from '../components/DialogTextComponent';
+import DialogWithRadioBtns from '../components/DialogWithRadioBtns';
 
-export default function Report() {
+
+
+const Report = () => {
+  const [visible, setVisible] = React.useState(false);
+  const openDialog = () => {
+    setVisible(true)
+  }
+  const closeDialog = () => {
+    console.log('user cancelled')
+    setVisible(false)
+  }
+
+  const confirmDialog = () => {
+    console.log('user confirmed/clicked ok')
+    setVisible(false)
+  }
+
   return (
-    <View style={styles.container}>
-      <Text> Hello from Report</Text>
-      {/* <Image source={} /> */}
-      {/* <StatusBar style="auto" /> */}
+    <View>
+      <DialogWithRadioBtns visible={visible} close={closeDialog} confirm={confirmDialog} />
+      <Button mode="contained" onPress={openDialog} compact={true}>
+        Report
+      </Button>
     </View>
+
   );
-}
+};
+
+export default Report;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    maxHeight: 170,
+    paddingHorizontal: 0,
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  text: {
+    paddingLeft: 8,
   },
 });

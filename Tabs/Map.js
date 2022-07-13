@@ -124,9 +124,10 @@ export default function Map() {
       )}
 
       <BottomSheet
+        enabledGestureInteraction={true}
         enabledBottomClamp={true}
         ref={sheetRef}
-        snapPoints={[350, 300, 0]}
+        snapPoints={[350, 300, 299]}
         borderRadius={10}
         renderContent={renderContent}
         renderHeader={renderHeader}

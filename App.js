@@ -1,3 +1,5 @@
+import { Provider as PaperProvider } from 'react-native-paper';
+
 //the navigation stuff that is annoying to deal w/
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,9 +19,10 @@ const Stack = createNativeStackNavigator();
 //display my satufu
 export default function App() {
   return (
+    <PaperProvider>
     <NativeBaseProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Map" >
+        <Stack.Navigator initialRouteName="Report Form" >
           <Stack.Screen
             name="Map"
             component={Map}
@@ -45,10 +48,11 @@ export default function App() {
               ),
             }}
           /> */}
-          {/* <Stack.Screen
-            name="Report"
+          <Stack.Screen
+            name="Report Form"
             component={Report}
             options={{
+              headerShown: true,
               tabBarIcon: () => (
                 <Image
                   source={require("./assets/Group42.jpg")}
@@ -56,10 +60,11 @@ export default function App() {
                 />
               ),
             }}
-          /> */}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
+    </PaperProvider>
   );
 }
 
