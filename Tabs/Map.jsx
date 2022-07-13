@@ -17,7 +17,7 @@ import {
   TouchableRipple,
 } from "react-native-paper";
 
-export default function Map() {
+export default function Map({navigation}) {
   const [location, setLocation] = useState(null);
   const [mapRegion, setMapRegion] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -118,7 +118,9 @@ export default function Map() {
           <View style={styles.btns}>
             <Button mode="contained">Scan</Button>
 
-            <Button mode="contained">Report</Button>
+            <Button mode="contained" onPress={() => {
+              navigation.navigate('Report Form')
+            }}>Report</Button>
           </View>
 
           <View style={styles.contentContainer}>
@@ -146,7 +148,7 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
   },
