@@ -1,8 +1,9 @@
-import { Provider as PaperProvider } from 'react-native-paper';
+import { Provider as PaperProvider } from "react-native-paper";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 //the navigation stuff that is annoying to deal w/
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Import our custom components
 import Scan from "./Tabs/Scan";
@@ -19,24 +20,25 @@ const Stack = createNativeStackNavigator();
 //display my satufu
 export default function App() {
   return (
-    <PaperProvider>
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Report Form" >
-          <Stack.Screen
-            name="Map"
-            component={Map}
-            options={{
-              headerShown: false,
-              tabBarIcon: () => (
-                <Image
-                  source={require("./assets/Variant3.jpg")}
-                  style={{ width: 32, height: 32 }}
-                />
-              ),
-            }}
-          />
-          {/* <Stack.Screen
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <PaperProvider>
+        <NativeBaseProvider>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Map">
+              <Stack.Screen
+                name="Map"
+                component={Map}
+                options={{
+                  headerShown: false,
+                  tabBarIcon: () => (
+                    <Image
+                      source={require("./assets/Variant3.jpg")}
+                      style={{ width: 32, height: 32 }}
+                    />
+                  ),
+                }}
+              />
+              {/* <Stack.Screen
             name="Scan"
             component={Scan}
             options={{
@@ -48,23 +50,24 @@ export default function App() {
               ),
             }}
           /> */}
-          <Stack.Screen
-            name="Report Form"
-            component={Report}
-            options={{
-              headerShown: true,
-              tabBarIcon: () => (
-                <Image
-                  source={require("./assets/Group42.jpg")}
-                  style={{ width: 32, height: 32 }}
-                />
-              ),
-            }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
-    </PaperProvider>
+              <Stack.Screen
+                name="Report Form"
+                component={Report}
+                options={{
+                  headerShown: true,
+                  tabBarIcon: () => (
+                    <Image
+                      source={require("./assets/Group42.jpg")}
+                      style={{ width: 32, height: 32 }}
+                    />
+                  ),
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </NativeBaseProvider>
+      </PaperProvider>
+    </GestureHandlerRootView>
   );
 }
 

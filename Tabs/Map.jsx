@@ -1,9 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import MapView, { Marker } from "react-native-maps";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import * as Location from "expo-location";
-import Animated from "react-native-reanimated";
-import BottomSheet from "reanimated-bottom-sheet";
+import BottomSheet from "@gorhom/bottom-sheet";
+import {
+  Button,
+  Portal,
+  Dialog,
+  RadioButton,
+  TouchableRipple,
+} from "react-native-paper";
 
 export default function Map() {
   const [location, setLocation] = useState(null);
@@ -11,8 +23,6 @@ export default function Map() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [isMapLoading, setIsMapLoading] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false); // drawer is closed when app loads
-
-  const sheetRef = React.useRef(null);
 
   useEffect(() => {
     (async () => {
@@ -38,40 +48,16 @@ export default function Map() {
     })();
   }, []);
 
-  // let text = "Waiting..";
-  // if (errorMsg) {
-  //   text = errorMsg;
-  // } else if (location) {
-  //   text = JSON.stringify(location);
-  // }
+  // ref
+  const bottomSheetRef = useRef(null);
 
-  const onClose = () => {
-    setIsDrawerOpen(false);
-  };
+  // variables
+  const snapPoints = useMemo(() => ["10%", "60%"], []);
 
-  const renderContent = () => {
-    return (
-      <View style={{ backgroundColor: "red" }}>
-        <Text>Get directions to your location</Text>
-      </View>
-    );
-  };
-
-  const renderHeader = () => {
-    return (
-      <View style={{ backgroundColor: "blue" }}>
-        <Text>header</Text>
-      </View>
-    );
-  };
-
-  const onExpand = () => {
-    console.log("opening drawer");
-  };
-
-  const onCollapse = () => {
-    console.log("closing drawer");
-  };
+  // callbacks
+  const handleSheetChanges = useCallback((index) => {
+    console.log("handleSheetChanges", index);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -96,9 +82,9 @@ export default function Map() {
           customMapStyle={mapStyle}
         >
           {/* <Marker coordinate = {{latitude: 34.039660,longitude: -118.378700}}
-         pinColor = {"red"} // any color
-         title={"Angel's House"}
-         description={"This is where Angel lives."}/>   */}
+     pinColor = {"red"} // any color
+     title={"Angel's House"}
+     description={"This is where Angel lives."}/>   */}
 
           <Marker
             coordinate={{ latitude: 34.03308, longitude: -118.29202 }}
@@ -122,55 +108,61 @@ export default function Map() {
           />
         </MapView>
       )}
-
       <BottomSheet
-        enabledGestureInteraction={true}
-        enabledBottomClamp={true}
-        ref={sheetRef}
-        snapPoints={[350, 300, 299]}
-        borderRadius={10}
-        renderContent={renderContent}
-        renderHeader={renderHeader}
-      />
-
-      {/* <BottomDrawer
-        onCollapse={onCollapse}
-        onExpand={onExpand}
-        containerHeight={400}
-        offset={0}
-        startUp={false}
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
       >
-        {renderContent()}
-      </BottomDrawer> */}
+        <View style={styles.contentContainer}>
+          <View style={styles.btns}>
+            <Button mode="contained">Scan</Button>
 
-      {/* <Actionsheet hideDragIndicator={false} isOpen={isDrawerOpen} onClose={onClose} disableOverlay>
-        <Actionsheet.Content>
-          <Box w="100%" h={40} px={4} justifyContent="center">
-            <Text
-              fontSize="16"
-              color="gray.500"
-              _dark={{
-                color: "gray.300",
-              }}
-            ></Text>
-          </Box>
-          <Actionsheet.Item>Scan</Actionsheet.Item>
-          <Actionsheet.Item>Report</Actionsheet.Item>
-        </Actionsheet.Content>
-      </Actionsheet> */}
+            <Button mode="contained">Report</Button>
+          </View>
+
+          <View style={styles.contentContainer}>
+            <Text>
+              option 1
+            </Text>
+          </View>
+
+          <View style={styles.contentContainer}>
+            <Text>
+              option 1
+            </Text>
+          </View>
+
+          <View style={styles.contentContainer}>
+            <Text>
+              option 1
+            </Text>
+          </View>
+        </View>
+      </BottomSheet>
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "red",
     alignItems: "center",
     justifyContent: "center",
   },
   map: {
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
+  },
+  contentContainer: {
+    flexDirection: "column",
+    justifyContent: "space-between",
+    flex: 1
+  },
+  btns: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 100,
   },
 });
 
