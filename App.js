@@ -25,7 +25,7 @@ export default function App() {
       <PaperProvider>
         <NativeBaseProvider>
           <NavigationContainer>
-          <StatusBar translucent={true}  />
+          <StatusBar translucent={true} backgroundColor="transparent"  />
             <Stack.Navigator initialRouteName="Map">
 
               <Stack.Screen
@@ -73,28 +73,3 @@ const styles = StyleSheet.create({
 // bruh
 
 // https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBSS0O17zdL_oCDLTKS67aDph6BWwCxgV4&center=47.66670827132002,-122.3844921033355&zoom=13&format=png&maptype=roadmap&style=feature:administrative.land_parcel%7Celement:labels%7Cvisibility:off&style=feature:poi%7Celement:labels.text%7Cvisibility:off&style=feature:poi.business%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:road.local%7Celement:labels%7Cvisibility:off&style=feature:transit%7Cvisibility:off&size=480x360
-
-// import { Button, Actionsheet, useDisclose, Center } from 'native-base';
-
-// function Example() {
-//   const { isOpen, onOpen, onClose } = useDisclose();
-//   return (
-//     <>
-//       <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
-//         <Actionsheet.Content>
-//           <Box w="100%" h={40} px={4} justifyContent="center">
-//             <Text
-//               fontSize="16"
-//               color="gray.500"
-//               _dark={{
-//                 color: "gray.300",
-//               }}
-//             ></Text>
-//           </Box>
-//           <Actionsheet.Item>Scan</Actionsheet.Item>
-//           <Actionsheet.Item>Report</Actionsheet.Item>
-//         </Actionsheet.Content>
-//       </Actionsheet>
-//     </>
-//   );
-// }
