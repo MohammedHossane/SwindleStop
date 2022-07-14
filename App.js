@@ -9,10 +9,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Scan from "./Tabs/Scan";
 import Map from "./Tabs/Map";
 import Report from "./Tabs/Report";
+import ReportGas from "./Tabs/ReportGas";
 
 // ui kit
-import { NativeBaseProvider, Box } from "native-base";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { NativeBaseProvider, Box, Modal } from "native-base";
+import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
 
 // Create an instance of Bottom Tab navigator
 const Stack = createNativeStackNavigator();
@@ -24,45 +25,33 @@ export default function App() {
       <PaperProvider>
         <NativeBaseProvider>
           <NavigationContainer>
+          <StatusBar translucent={true}  />
             <Stack.Navigator initialRouteName="Map">
+
               <Stack.Screen
                 name="Map"
                 component={Map}
                 options={{
                   headerShown: false,
-                  tabBarIcon: () => (
-                    <Image
-                      source={require("./assets/Variant3.jpg")}
-                      style={{ width: 32, height: 32 }}
-                    />
-                  ),
                 }}
               />
-              {/* <Stack.Screen
-            name="Scan"
-            component={Scan}
-            options={{
-              tabBarIcon: () => (
-                <Image
-                  source={require("./assets/Group42.jpg")}
-                  style={{ width: 32, height: 32 }}
-                />
-              ),
-            }}
-          /> */}
+
               <Stack.Screen
                 name="Report Form"
                 component={Report}
                 options={{
                   headerShown: true,
-                  tabBarIcon: () => (
-                    <Image
-                      source={require("./assets/Group42.jpg")}
-                      style={{ width: 32, height: 32 }}
-                    />
-                  ),
                 }}
               />
+
+              <Stack.Screen
+                name="Report Gas Station"
+                component={ReportGas}
+                options={{
+                  headerShown: true,
+                }}
+              />
+
             </Stack.Navigator>
           </NavigationContainer>
         </NativeBaseProvider>
@@ -87,25 +76,25 @@ const styles = StyleSheet.create({
 
 // import { Button, Actionsheet, useDisclose, Center } from 'native-base';
 
-function Example() {
-  const { isOpen, onOpen, onClose } = useDisclose();
-  return (
-    <>
-      <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
-        <Actionsheet.Content>
-          <Box w="100%" h={40} px={4} justifyContent="center">
-            <Text
-              fontSize="16"
-              color="gray.500"
-              _dark={{
-                color: "gray.300",
-              }}
-            ></Text>
-          </Box>
-          <Actionsheet.Item>Scan</Actionsheet.Item>
-          <Actionsheet.Item>Report</Actionsheet.Item>
-        </Actionsheet.Content>
-      </Actionsheet>
-    </>
-  );
-}
+// function Example() {
+//   const { isOpen, onOpen, onClose } = useDisclose();
+//   return (
+//     <>
+//       <Actionsheet isOpen={true} onClose={onClose} disableOverlay>
+//         <Actionsheet.Content>
+//           <Box w="100%" h={40} px={4} justifyContent="center">
+//             <Text
+//               fontSize="16"
+//               color="gray.500"
+//               _dark={{
+//                 color: "gray.300",
+//               }}
+//             ></Text>
+//           </Box>
+//           <Actionsheet.Item>Scan</Actionsheet.Item>
+//           <Actionsheet.Item>Report</Actionsheet.Item>
+//         </Actionsheet.Content>
+//       </Actionsheet>
+//     </>
+//   );
+// }
