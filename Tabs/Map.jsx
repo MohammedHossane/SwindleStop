@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import MapView, { Marker } from "react-native-maps";
-import { StyleSheet, Text, View, Dimensions, ScrollView, StatusBar } from "react-native";
+import { StyleSheet, Text, View, Dimensions, ScrollView, StatusBar, flex } from "react-native";
 import * as Location from "expo-location";
 import BottomSheet from "@gorhom/bottom-sheet";
 import {
@@ -74,55 +74,55 @@ export default function Map({ navigation }) {
           <Modal.Header>Report Form</Modal.Header>
           <Modal.Header>Skimmer Type</Modal.Header>
           <Modal.Body>
-   
+
             <View>
-            <ScrollView>
-            <View>
-              <TouchableRipple onPress={() => setChecked('normal')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="normal"
-                      status={checked === 'normal' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <TextComponent isSubheading style={styles.text}>
-                    ATM
-                  </TextComponent>
+              <ScrollView>
+                <View>
+                  <TouchableRipple onPress={() => setChecked('normal')}>
+                    <View style={styles.row}>
+                      <View pointerEvents="none">
+                        <RadioButton
+                          value="normal"
+                          status={checked === 'normal' ? 'checked' : 'unchecked'}
+                        />
+                      </View>
+                      <TextComponent isSubheading style={styles.text}>
+                        ATM
+                      </TextComponent>
+                    </View>
+                  </TouchableRipple>
+                  <TouchableRipple onPress={() => setChecked('second')}>
+                    <View style={styles.row}>
+                      <View pointerEvents="none">
+                        <RadioButton
+                          value="second"
+                          status={checked === 'second' ? 'checked' : 'unchecked'}
+                        />
+                      </View>
+                      <TextComponent isSubheading style={styles.text}>
+                        Gas Station
+                      </TextComponent>
+                    </View>
+                  </TouchableRipple>
+
                 </View>
-              </TouchableRipple>
-              <TouchableRipple onPress={() => setChecked('second')}>
-                <View style={styles.row}>
-                  <View pointerEvents="none">
-                    <RadioButton
-                      value="second"
-                      status={checked === 'second' ? 'checked' : 'unchecked'}
-                    />
-                  </View>
-                  <TextComponent isSubheading style={styles.text}>
-                    Gas Station
-                  </TextComponent>
-                </View>
-              </TouchableRipple>
-       
-            </View>
-          </ScrollView>
+              </ScrollView>
             </View>
 
           </Modal.Body>
           <Modal.Footer>
-   
-              <Button  onPress={() => {
-                setShowModal(false);
-              }}>
-                Cancel
-              </Button>
-              <Button onPress={() => {
-                setShowModal(false);
-              }}>
-                Submit
-              </Button>
-            
+
+            <Button onPress={() => {
+              setShowModal(false);
+            }}>
+              Cancel
+            </Button>
+            <Button onPress={() => {
+              setShowModal(false);
+            }}>
+              Submit
+            </Button>
+
           </Modal.Footer>
         </Modal.Content>
       </Modal>
@@ -186,7 +186,7 @@ export default function Map({ navigation }) {
           </View>
         }
         backgroundComponent={() =>
-          <View style={styles.contentContainer}/>
+          <View style={styles.contentContainer} />
         }
 
         snapPoints={[80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103
@@ -229,9 +229,12 @@ export default function Map({ navigation }) {
               setShowModal(true)
             }}>Report</Button>
           </View>
+          <View style={styles.reportbox}>
+            <Text style={styles.text}> Something</Text>
+            <Text style={styles.text}> another something</Text>
+          </View>
         </View>
       </BottomSheet>
-      
     </View>
   );
 }
@@ -264,7 +267,8 @@ const styles = StyleSheet.create({
     height: 43,
     backgroundColor: '#629FE7',
     borderRadius: 36,
-    alignItems: 'center'
+    alignItems: 'center',
+    // fontFamily: 'Rubik-Regular'
   },
   scrollthing: {
     backgroundStyle: 'blue'
@@ -284,10 +288,25 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: '#000000'
-    
+    backgroundColor: '#000000',
+    display: 'flex'
+  },
+  reportbox: {
+    display: flex
+  },
+  text: {
+    color: '#FFFFFF',
   },
 });
+
+
+
+
+
+
+
+
+
 
 const mapStyle = [
   {

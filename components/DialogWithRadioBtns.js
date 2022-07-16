@@ -75,5 +75,6 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingLeft: 8,
+    fontFamily: "Rubik-Regular",
   },
 });
