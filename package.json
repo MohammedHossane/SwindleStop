@@ -43,8 +43,7 @@
     "@babel/core": "^7.12.9"
   },
   "private": true,
-
-"rnpm": {
+  "rnpm": {
     "assets": [
       "./assets/fonts/"
     ]

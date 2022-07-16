@@ -230,8 +230,16 @@ export default function Map({ navigation }) {
             }}>Report</Button>
           </View>
           <View style={styles.reportbox}>
-            <Text style={styles.text}> Something</Text>
-            <Text style={styles.text}> another something</Text>
+            <View style={styles.blackbar}>
+              <Text> kfklsfka.</Text>
+            </View>
+            <Text style={styles.textreport}> Report</Text>
+            <Text style={styles.textminute}> 1 min ago</Text>
+            <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
+            <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+            <Text style={styles.textminute}> 5 min ago</Text>
+            <Text style={styles.texttitle}> Skimmer reported at <Text style={styles.textblue}>ATM</Text></Text>
+            <Text style={styles.textlocation}> 112 E St Bellingham, WA 98255 </Text>
           </View>
         </View>
       </BottomSheet>
@@ -291,12 +299,56 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     display: 'flex'
   },
-  reportbox: {
-    display: flex
+  textlocation: {
+    fontSize: 14,
+    color: '#ABABAB',
+    paddingLeft: 12,
   },
-  text: {
+  textminute: {
+    fontSize: 12,
+    color: '#B4B4B4',
+    paddingTop: 11,
+    paddingLeft: 12,
+  },
+  texttitle: {
+    fontSize: 20,
     color: '#FFFFFF',
+    paddingTop: 12,
+    paddingLeft: 12,
   },
+  textblue: {
+    color: '#629FE7'
+  },
+  textreport: {
+    color: '#F5F5F5',
+    fontSize: 17,
+    paddingTop: 29,
+    paddingLeft: 12,
+  },
+  blackbar: {
+    width: 368,
+    height: 4,
+    left: 26,
+    top: 648,
+    backgroundColor: 'red',
+    borderRadius: 2,
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 
