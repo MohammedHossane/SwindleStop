@@ -40,7 +40,7 @@ export default function App() {
                 name="Report Form"
                 component={Report}
                 options={{
-                  headerShown: true,
+                  headerShown: false,
                 }}
               />
 

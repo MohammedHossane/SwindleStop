@@ -226,9 +226,8 @@ export default function Map({ navigation }) {
           <View style={styles.btns}>
             <TouchableHighlight style={styles.butt0n}><Image source={require('../assets/scanbutton.png')}/></TouchableHighlight>
 
-            <TouchableHighlight style={styles.butt0n}  onPress={() => {
-              setShowModal(true)
-            }}><Image source={require('../assets/reportbutton.png')}/>
+            <TouchableHighlight style={styles.butt0n}  onPress={() => navigation.navigate("Report Form")}>
+              <Image source={require('../assets/reportbutton.png')}/>
             </TouchableHighlight>
           </View>
           <View style={styles.reportbox}>

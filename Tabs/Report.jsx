@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, TouchableHighlight, Text, Image } from 'react-native';
+
 import {
   Button,
   Portal,
@@ -12,8 +13,9 @@ import DialogWithRadioBtns from '../components/DialogWithRadioBtns';
 
 
 
-const Report = () => {
+const Report = ({ navigation }) => {
   const [visible, setVisible] = React.useState(false);
+  const [checked, setChecked] = React.useState('normal');
   const openDialog = () => {
     setVisible(true)
   }
@@ -28,11 +30,47 @@ const Report = () => {
   }
 
   return (
-    <View>
-      <DialogWithRadioBtns visible={visible} close={closeDialog} confirm={confirmDialog} />
-      <Button mode="contained" onPress={openDialog} compact={true}>
-        Report
-      </Button>
+    <View style={styles.reportpage}>
+      {/* <ScrollView> */}
+      {/* <View> */}
+      <Text style={styles.reportform}> Report Form</Text>
+      <TouchableHighlight style={styles.submitbutton} onPress={() => console.log('hello')}>
+        <Image source={require('../assets/sumbit.png')} />
+      </TouchableHighlight>
+      <View style={styles.greythinggy} >
+        <Text style={styles.skimmertype}> Skimmer Type</Text>
+        <TouchableRipple onPress={() => setChecked('normal')}>
+          <View style={styles.row}>
+            <View pointerEvents="none">
+              <RadioButton
+                value="normal"
+                status={checked === 'normal' ? 'checked' : 'unchecked'}
+              />
+            </View>
+            <TextComponent isSubheading style={styles.textATM}>
+              ATM
+            </TextComponent>
+          </View>
+        </TouchableRipple>
+        <TouchableRipple onPress={() => setChecked('second')}>
+          <View style={styles.row}>
+            <View pointerEvents="none">
+              <RadioButton
+                value="second"
+                status={checked === 'second' ? 'checked' : 'unchecked'}
+              />
+            </View>
+            <TextComponent isSubheading style={styles.textGAS}>
+              Gas Station
+            </TextComponent>
+          </View>
+        </TouchableRipple>
+      </View>
+      {/* <TouchableHighlight> <Image source={require('../assets/scanbutton.png')}/> </TouchableHighlight> */}
+
+
+      {/* </View> */}
+      {/* </ScrollView> */}
     </View>
 
   );
@@ -54,4 +92,43 @@ const styles = StyleSheet.create({
   text: {
     paddingLeft: 8,
   },
+  reportpage: {
+    backgroundColor: '#1F1F1F',
+    height: '100%'
+  },
+  reportform: {
+    color: '#FFFFFF',
+    fontSize: 40,
+    textAlign: 'center',
+    paddingTop: 100,
+  },
+  submitbutton: {
+    alignItems: 'center',
+    top: 522,
+  },
+  greythinggy: {
+    width: 329,
+    height: 268,
+    alignSelf: 'center',
+    backgroundColor: '#484848',
+    borderRadius: 19,
+  },
+  skimmertype: {
+    color: '#FFFFFF',
+    fontSize: 32,
+    textAlign: 'center',
+    paddingTop: 36
+  },
+  textATM: {
+    color: '#FFFFFF',
+    fontSize: 28,
+    // paddingLeft: 45,
+    paddingTop: 44.32,
+    paddingBottom: 35
+  },
+  textGAS: {
+    color: '#FFFFFF',
+    fontSize: 28,
+    // paddingLeft: 45,
+  }
 });
