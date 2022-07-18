@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { TextInput } from 'react-native-paper';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { StyleSheet, Constants, View, Text } from 'react-native';
 
 
 const ReportGas = () => {
     const [text, setText] = React.useState("");
 
     return (
+      <View style={styles.container}>
     <GooglePlacesAutocomplete
     placeholder='Search'
     onPress={(data, details = null) => {
@@ -23,7 +25,17 @@ const ReportGas = () => {
       value={text}
       onChangeText={text => setText(text)}
     />
+    </View>
     );
 };
 
 export default ReportGas;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    paddingTop: 10,
+    backgroundColor: '#ecf0f1',
+  },
+});

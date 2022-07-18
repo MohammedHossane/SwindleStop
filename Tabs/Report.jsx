@@ -16,6 +16,9 @@ import DialogWithRadioBtns from '../components/DialogWithRadioBtns';
 const Report = ({ navigation }) => {
   const [visible, setVisible] = React.useState(false);
   const [checked, setChecked] = React.useState('normal');
+
+  const [page, setPage] = React.useState('');
+
   const openDialog = () => {
     setVisible(true)
   }
@@ -34,7 +37,10 @@ const Report = ({ navigation }) => {
       {/* <ScrollView> */}
       {/* <View> */}
       <Text style={styles.reportform}> Report Form</Text>
-      <TouchableHighlight style={styles.submitbutton} onPress={() => console.log('hello')}>
+      <TouchableHighlight style={styles.submitbutton} onPress={() => {
+        // console.log(page)
+        navigation.navigate(checked);
+        }}>
         <Image source={require('../assets/sumbit.png')} />
       </TouchableHighlight>
       <View style={styles.greythinggy} >
@@ -45,6 +51,7 @@ const Report = ({ navigation }) => {
               <RadioButton
                 value="normal"
                 status={checked === 'normal' ? 'checked' : 'unchecked'}
+                // onPress = {() => setPage('')}
               />
             </View>
             <TextComponent isSubheading style={styles.textATM}>
@@ -52,12 +59,13 @@ const Report = ({ navigation }) => {
             </TextComponent>
           </View>
         </TouchableRipple>
-        <TouchableRipple onPress={() => setChecked('second')}>
+        <TouchableRipple onPress={() => setChecked('Report Gas Station')}>
           <View style={styles.row}>
             <View pointerEvents="none">
               <RadioButton
-                value="second"
-                status={checked === 'second' ? 'checked' : 'unchecked'}
+                value='Report Gas Station'
+                status={checked === 'Report Gas Station' ? 'checked' : 'unchecked'}
+                
               />
             </View>
             <TextComponent isSubheading style={styles.textGAS}>
