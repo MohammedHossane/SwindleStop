@@ -6,7 +6,7 @@ import React, {
   useCallback,
 } from "react";
 import MapView, { Marker } from "react-native-maps";
-import { StyleSheet, Text, View, Dimensions, ScrollView, StatusBar, flex } from "react-native";
+import { StyleSheet, Text, View, Dimensions, ScrollView, StatusBar, TouchableHighlight, Image } from "react-native";
 import * as Location from "expo-location";
 import BottomSheet from "@gorhom/bottom-sheet";
 import {
@@ -18,6 +18,7 @@ import {
 } from "react-native-paper";
 import { Modal } from "native-base";
 import { TextComponent } from '../components/DialogTextComponent';
+// import { TouchableHighlight } from "react-native-gesture-handler";
 
 
 
@@ -223,23 +224,36 @@ export default function Map({ navigation }) {
       >
         <View style={styles.contentContainer}>
           <View style={styles.btns}>
-            <Button style={styles.butt0n} mode="contained">Scan</Button>
+            <TouchableHighlight style={styles.butt0n}><Image source={require('../assets/scanbutton.png')}/></TouchableHighlight>
 
-            <Button style={styles.butt0n} mode="contained" onPress={() => {
+            <TouchableHighlight style={styles.butt0n}  onPress={() => {
               setShowModal(true)
-            }}>Report</Button>
+            }}><Image source={require('../assets/reportbutton.png')}/>
+            </TouchableHighlight>
           </View>
           <View style={styles.reportbox}>
-            <View style={styles.blackbar}>
+            {/* <View style={styles.blackbar}>
               <Text> kfklsfka.</Text>
+            </View> */}
+            <View style={styles.blackbarContainer1}>
+              <View style={styles.blackbar1}>
+              </View>
             </View>
             <Text style={styles.textreport}> Report</Text>
             <Text style={styles.textminute}> 1 min ago</Text>
             <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
             <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+            <View style={styles.blackbarContainer2}>
+              <View style={styles.blackbar2}>
+              </View>
+            </View>
             <Text style={styles.textminute}> 5 min ago</Text>
             <Text style={styles.texttitle}> Skimmer reported at <Text style={styles.textblue}>ATM</Text></Text>
             <Text style={styles.textlocation}> 112 E St Bellingham, WA 98255 </Text>
+            <View style={styles.blackbarContainer3}>
+              <View style={styles.blackbar3}>
+              </View>
+            </View>
           </View>
         </View>
       </BottomSheet>
@@ -261,14 +275,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     flex: 1,
-    backgroundColor: '#000000'
+    backgroundColor: '#1F1F1F'
 
   },
   btns: {
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 10,
-    backgroundColor: '#000000'
+    backgroundColor: '#1F1F1F'
   },
   butt0n: {
     width: 180,
@@ -276,6 +290,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#629FE7',
     borderRadius: 36,
     alignItems: 'center',
+    color: 'white',
     // fontFamily: 'Rubik-Regular'
   },
   scrollthing: {
@@ -296,25 +311,30 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    backgroundColor: '#000000',
+    backgroundColor: '#1F1F1F',
     display: 'flex'
   },
   textlocation: {
     fontSize: 14,
     color: '#ABABAB',
-    paddingLeft: 12,
+    paddingTop: 18,
+    paddingLeft: 14,
+    paddingBottom: 19
+ 
   },
   textminute: {
     fontSize: 12,
     color: '#B4B4B4',
     paddingTop: 11,
-    paddingLeft: 12,
+    paddingLeft: 14, 
+
   },
   texttitle: {
     fontSize: 20,
     color: '#FFFFFF',
-    paddingTop: 12,
-    paddingLeft: 12,
+    paddingTop: 8,
+    paddingLeft: 14,
+
   },
   textblue: {
     color: '#629FE7'
@@ -322,43 +342,45 @@ const styles = StyleSheet.create({
   textreport: {
     color: '#F5F5F5',
     fontSize: 17,
-    paddingTop: 29,
-    paddingLeft: 12,
+    paddingTop: 20.57,
+    paddingLeft: 14,
+  
   },
-  blackbar: {
-    width: 368,
+
+  //BLACK BARS
+
+  blackbar1: {
+    width: 352,
     height: 4,
-    left: 26,
-    top: 648,
-    backgroundColor: 'red',
+    backgroundColor: '#000000',
     borderRadius: 2,
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    top: 15
+  },
+  blackbar2: {
+    width: 354,
+    height: 2,
+    backgroundColor: '#000000',
+    borderRadius: 2,
+  },
+  blackbar3: {
+    width: 354,
+    height: 2,
+    backgroundColor: '#000000   ',
+    borderRadius: 2,
+  },
+  blackbarContainer1: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  blackbarContainer2: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  blackbarContainer3: {
+    width: '100%',
+    alignItems: 'center',
+  },
 });
-
-
-
-
-
-
-
-
-
 
 const mapStyle = [
   {
