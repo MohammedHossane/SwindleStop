@@ -45,16 +45,16 @@ const Report = ({ navigation }) => {
       </TouchableHighlight>
       <View style={styles.greythinggy} >
         <Text style={styles.skimmertype}> Skimmer Type</Text>
-        <TouchableRipple onPress={() => setChecked('normal')}>
+        <TouchableRipple onPress={() => setChecked('Report ATM')}>
           <View style={styles.row}>
             <View pointerEvents="none">
               <RadioButton
-                value="normal"
-                status={checked === 'normal' ? 'checked' : 'unchecked'}
+                value="Report ATM"
+                status={checked === 'Report ATM' ? 'checked' : 'unchecked'}
                 // onPress = {() => setPage('')}
               />
             </View>
-            <TextComponent isSubheading style={styles.textATM}>
+            <TextComponent isSubheading style={styles.radioText}>
               ATM
             </TextComponent>
           </View>
@@ -68,7 +68,7 @@ const Report = ({ navigation }) => {
                 
               />
             </View>
-            <TextComponent isSubheading style={styles.textGAS}>
+            <TextComponent isSubheading style={styles.radioText}>
               Gas Station
             </TextComponent>
           </View>
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   submitbutton: {
     alignItems: 'center',
-    top: 522,
+    top: 322,
   },
   greythinggy: {
     width: 329,
@@ -125,18 +125,13 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 32,
     textAlign: 'center',
-    paddingTop: 36
+    paddingTop: 36,
+    marginBottom: 10
   },
-  textATM: {
+  radioText: {
     color: '#FFFFFF',
     fontSize: 28,
-    // paddingLeft: 45,
-    paddingTop: 44.32,
-    paddingBottom: 35
+    paddingVertical: 12
   },
-  textGAS: {
-    color: '#FFFFFF',
-    fontSize: 28,
-    // paddingLeft: 45,
-  }
+
 });

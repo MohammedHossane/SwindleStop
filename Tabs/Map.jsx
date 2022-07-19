@@ -265,6 +265,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
+
   },
   map: {
     width: Dimensions.get("screen").width,

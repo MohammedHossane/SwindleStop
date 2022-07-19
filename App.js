@@ -10,6 +10,7 @@ import Scan from "./Tabs/Scan";
 import Map from "./Tabs/Map";
 import Report from "./Tabs/Report";
 import ReportGas from "./Tabs/ReportGas";
+import ReportATM from "./Tabs/ReportATM";
 
 // ui kit
 import { NativeBaseProvider, Box, Modal } from "native-base";
@@ -25,7 +26,7 @@ export default function App() {
       <PaperProvider>
         <NativeBaseProvider>
           <NavigationContainer>
-          <StatusBar translucent={true} backgroundColor="transparent"  />
+            <StatusBar translucent={true} backgroundColor="transparent" />
             <Stack.Navigator initialRouteName="Map">
 
               <Stack.Screen
@@ -47,6 +48,14 @@ export default function App() {
               <Stack.Screen
                 name="Report Gas Station"
                 component={ReportGas}
+                options={{
+                  headerShown: false,
+                }}
+              />
+
+              <Stack.Screen
+                name="Report ATM"
+                component={ReportATM}
                 options={{
                   headerShown: true,
                 }}
