@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, View, StyleSheet, TouchableHighlight, Text, Image } from 'react-native';
+import { ScrollView, View, StyleSheet, TouchableHighlight, Text, Image, StatusBar } from 'react-native';
 
 import {
   Button,
@@ -34,13 +34,19 @@ const Report = ({ navigation }) => {
 
   return (
     <View style={styles.reportpage}>
+      <StatusBar translucent={true} backgroundColor="transparent" />
+      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+      <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
+          <Image source={require('../assets/Vector.png')} />
+        </TouchableHighlight>
+      </View>
       {/* <ScrollView> */}
       {/* <View> */}
-      <Text style={styles.reportform}> Report Form</Text>
+      <Text style={styles.reporttext}> Report Form</Text>
       <TouchableHighlight style={styles.submitbutton} onPress={() => {
         // console.log(page)
         navigation.navigate(checked);
-        }}>
+      }}>
         <Image source={require('../assets/sumbit.png')} />
       </TouchableHighlight>
       <View style={styles.greythinggy} >
@@ -49,9 +55,10 @@ const Report = ({ navigation }) => {
           <View style={styles.row}>
             <View pointerEvents="none">
               <RadioButton
+                color = 'white'
                 value="Report ATM"
                 status={checked === 'Report ATM' ? 'checked' : 'unchecked'}
-                // onPress = {() => setPage('')}
+              // onPress = {() => setPage('')}
               />
             </View>
             <TextComponent isSubheading style={styles.radioText}>
@@ -63,9 +70,10 @@ const Report = ({ navigation }) => {
           <View style={styles.row}>
             <View pointerEvents="none">
               <RadioButton
+                color = 'white'
                 value='Report Gas Station'
                 status={checked === 'Report Gas Station' ? 'checked' : 'unchecked'}
-                
+
               />
             </View>
             <TextComponent isSubheading style={styles.radioText}>
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
   },
   submitbutton: {
     alignItems: 'center',
-    top: 322,
+    top: 514,
   },
   greythinggy: {
     width: 329,
@@ -133,5 +141,14 @@ const styles = StyleSheet.create({
     fontSize: 28,
     paddingVertical: 12
   },
-
+  goback: {
+    top: 34,
+    right: 17
+   },
+   reporttext: {
+    fontSize: 40,
+    paddingTop: 48,
+    textAlign: 'center',
+    color: '#FFFFFF'
+  },
 });

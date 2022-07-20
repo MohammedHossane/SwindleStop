@@ -224,10 +224,10 @@ export default function Map({ navigation }) {
       >
         <View style={styles.contentContainer}>
           <View style={styles.btns}>
-            <TouchableHighlight style={styles.butt0n}><Image source={require('../assets/scanbutton.png')}/></TouchableHighlight>
+            <TouchableHighlight style={styles.butt0n}><Image source={require('../assets/scanbutton.png')} /></TouchableHighlight>
 
-            <TouchableHighlight style={styles.butt0n}  onPress={() => navigation.navigate("Report Form")}>
-              <Image source={require('../assets/reportbutton.png')}/>
+            <TouchableHighlight style={styles.butt0n} onPress={() => navigation.navigate("Report Form")}>
+              <Image source={require('../assets/reportbutton.png')} />
             </TouchableHighlight>
           </View>
           <View style={styles.reportbox}>
@@ -239,16 +239,24 @@ export default function Map({ navigation }) {
               </View>
             </View>
             <Text style={styles.textreport}> Report</Text>
-            <Text style={styles.textminute}> 1 min ago</Text>
-            <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
-            <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+            <View style={styles.viewhistory}>
+              <Text style={styles.textminute}> 1 min ago</Text>
+              <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
+              <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+            </View>
             <View style={styles.blackbarContainer2}>
               <View style={styles.blackbar2}>
               </View>
             </View>
-            <Text style={styles.textminute}> 5 min ago</Text>
-            <Text style={styles.texttitle}> Skimmer reported at <Text style={styles.textblue}>ATM</Text></Text>
-            <Text style={styles.textlocation}> 112 E St Bellingham, WA 98255 </Text>
+            <TouchableHighlight style={styles.viewhistory2} onPress={() => {
+              navigation.navigate('Report ATM');
+            }}>
+              <View>
+                <Text style={styles.textminute}> 5 min ago</Text>
+                <Text style={styles.texttitle}> Skimmer reported at <Text style={styles.textblue}>ATM</Text></Text>
+                <Text style={styles.textlocation}> 112 E St Bellingham, WA 98255 </Text>
+              </View>
+            </TouchableHighlight>
             <View style={styles.blackbarContainer3}>
               <View style={styles.blackbar3}>
               </View>
@@ -320,13 +328,13 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     paddingLeft: 14,
     paddingBottom: 19
- 
+
   },
   textminute: {
     fontSize: 12,
     color: '#B4B4B4',
     paddingTop: 11,
-    paddingLeft: 14, 
+    paddingLeft: 14,
 
   },
   texttitle: {
@@ -344,7 +352,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingTop: 20.57,
     paddingLeft: 14,
-  
+
   },
 
   //BLACK BARS
@@ -380,6 +388,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
+
 });
 
 const mapStyle = [

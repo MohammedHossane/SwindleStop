@@ -57,7 +57,7 @@ export default function App() {
                 name="Report ATM"
                 component={ReportATM}
                 options={{
-                  headerShown: true,
+                  headerShown: false,
                 }}
               />
 
