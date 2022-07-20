@@ -12,6 +12,10 @@ import Report from "./Tabs/Report";
 import ReportGas from "./Tabs/ReportGas";
 import ReportATM from "./Tabs/ReportATM";
 
+//import report pages
+import Report1ATM from "./ReportPages/Report1ATM";
+import Report1GS from "./ReportPages/Report1GS";
+
 // ui kit
 import { NativeBaseProvider, Box, Modal } from "native-base";
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
@@ -60,6 +64,25 @@ export default function App() {
                   headerShown: false,
                 }}
               />
+
+              {/* here goes the other stuff for the pages like the report pages uk */}
+
+              <Stack.Screen
+                name="Report1ATM"
+                component={Report1ATM}
+                options={{
+                  headerShown: false,
+                }}
+              />
+
+<Stack.Screen
+                name="Report1GS"
+                component={Report1GS}
+                options={{
+                  headerShown: false,
+                }}
+              />
+
 
             </Stack.Navigator>
           </NavigationContainer>

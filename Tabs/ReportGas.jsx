@@ -107,7 +107,11 @@ const styles = StyleSheet.create({
   },
   goback: {
    top: 22,
-   right: 6
+   right: 6,
+   paddingLeft: 13,
+   paddingRight: 13,
+   paddingTop: 13,
+   paddingBottom: 13
   }
 });
 

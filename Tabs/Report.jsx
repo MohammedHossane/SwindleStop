@@ -143,7 +143,11 @@ const styles = StyleSheet.create({
   },
   goback: {
     top: 34,
-    right: 17
+    right: 17,
+    paddingLeft: 13,
+    paddingRight: 13,
+    paddingTop: 13,
+    paddingBottom: 13
    },
    reporttext: {
     fontSize: 40,

@@ -240,16 +240,22 @@ export default function Map({ navigation }) {
             </View>
             <Text style={styles.textreport}> Report</Text>
             <View style={styles.viewhistory}>
-              <Text style={styles.textminute}> 1 min ago</Text>
-              <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
-              <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+              <TouchableHighlight style={styles.viewhistory2} onPress={() => {
+                navigation.navigate('Report1GS');
+              }}>
+                <View>
+                <Text style={styles.textminute}> 1 min ago</Text>
+                <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
+                <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+                </View>
+              </TouchableHighlight>
             </View>
             <View style={styles.blackbarContainer2}>
               <View style={styles.blackbar2}>
               </View>
             </View>
             <TouchableHighlight style={styles.viewhistory2} onPress={() => {
-              navigation.navigate('Report ATM');
+              navigation.navigate('Report1ATM');
             }}>
               <View>
                 <Text style={styles.textminute}> 5 min ago</Text>
