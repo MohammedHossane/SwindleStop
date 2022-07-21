@@ -22,7 +22,7 @@ const ReportATM = ({ navigation }) => {
       <Text style={styles.locationword}> Location</Text>
       <View style={styles.textlocation}>
         <GooglePlacesAutocomplete
-          placeholder='Enter Location'
+          placeholder=''
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             console.log(data, details);
@@ -31,10 +31,21 @@ const ReportATM = ({ navigation }) => {
             key: 'AIzaSyBSS0O17zdL_oCDLTKS67aDph6BWwCxgV4',
             language: 'en',
           }}
+          textInputProps = {{
+            InputComp: TextInput,
+            underlineColor: 'transparent',
+            activeUnderlineColor: 'white',
+          }}
+          styles = {{ 
+            textInput: {
+              backgroundColor: '#484848',
+              color: 'white'
+            }
+           }}
         />
       </View>
       <Text style={styles.descriptionword}>Description</Text>
-      <TextInput style={styles.descimput}></TextInput>
+      <TextInput underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.descimput}></TextInput>
       <View style={styles.submitcont}>
         <Image source={require('../assets/sumbit.png')} />
       </View>
@@ -118,10 +129,11 @@ const styles = StyleSheet.create({
   descriptionword: {
     color: '#FFFFFF',
     fontSize: 28,
-    paddingTop: 34,
+    paddingTop: 24,
   },
   descimput: {
-    top: 9
+    top: 9,
+    backgroundColor: '#484848'
   },
   submitcont: {
     alignItems: 'center',

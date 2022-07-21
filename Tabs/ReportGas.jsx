@@ -8,25 +8,11 @@ import { Sae } from 'react-native-textinput-effects';
 
 const ReportGas = ({ navigation }) => {
   const [text, setText] = React.useState("");
-  const saeInput = (
-    <Sae
-      label={'Email Address'}
-      iconClass={FontAwesomeIcon}
-      iconName={'pencil'}
-      iconColor={'white'}
-      inputPadding={16}
-      labelHeight={24}
-      // active border height
-      borderHeight={2}
-      // TextInput props
-      autoCapitalize={'none'}
-      autoCorrect={false}
-    />
-  );
+
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} backgroundColor="transparent" />
-      <View style={{color: 'white',flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
         <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
           <Image source={require('../assets/Vector.png')} />
         </TouchableHighlight>
@@ -37,7 +23,7 @@ const ReportGas = ({ navigation }) => {
       <Text style={styles.locationword}> Location:</Text>
       <View style={styles.textlocation}>
         <GooglePlacesAutocomplete
-          placeholder='Enter Location'
+          placeholder=''
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             console.log(data, details);
@@ -46,16 +32,26 @@ const ReportGas = ({ navigation }) => {
             key: 'AIzaSyBSS0O17zdL_oCDLTKS67aDph6BWwCxgV4',
             language: 'en',
           }}
+          textInputProps = {{
+            InputComp: TextInput,
+            underlineColor: 'transparent',
+            activeUnderlineColor: 'white',
+          }}
+          styles = {{ 
+            textInput: {
+              backgroundColor: '#484848',
+            }
+           }}
         />
       </View>
       <Text style={styles.pumpword}>Pump:</Text>
-      <TextInput style={styles.pumpimput}></TextInput>
+      <TextInput underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.pumpimput}></TextInput>
       <Text style={styles.descriptionword}>Description:</Text>
-      <TextInput style={styles.descimput}></TextInput>
+      <TextInput underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}></TextInput>
       <View style={styles.submitcont}>
         <Image source={require('../assets/sumbit.png')} />
       </View>
-      
+
     </View>
 
   );
@@ -88,13 +84,12 @@ const styles = StyleSheet.create({
   pumpword: {
     color: '#FFFFFF',
     fontSize: 28,
-    paddingTop: 34,
+    paddingTop: 24,
   },
   pumpimput: {
     top: 9,
     backgroundColor: '#484848',
     borderRadius: 5,
-    
   },
   descriptionword: {
     color: '#FFFFFF',
@@ -109,12 +104,12 @@ const styles = StyleSheet.create({
     paddingTop: 119
   },
   goback: {
-   top: 22,
-   right: 6,
-   paddingLeft: 13,
-   paddingRight: 13,
-   paddingTop: 13,
-   paddingBottom: 13
+    top: 22,
+    right: 6,
+    paddingLeft: 13,
+    paddingRight: 13,
+    paddingTop: 13,
+    paddingBottom: 13
   }
 });
 
