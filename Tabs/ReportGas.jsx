@@ -8,6 +8,13 @@ import { Sae } from 'react-native-textinput-effects';
 
 const ReportGas = ({ navigation }) => {
   const [text, setText] = React.useState("");
+  const [location, setLocation] = React.useState("")
+  const [pump, setPump] = React.useState("")
+  const [description, setDescription] = React.useState("")
+
+  const getValue = () => {
+    console.log(location, description, pump)
+}
 
   return (
     <View style={styles.container}>
@@ -32,25 +39,27 @@ const ReportGas = ({ navigation }) => {
             key: 'AIzaSyBSS0O17zdL_oCDLTKS67aDph6BWwCxgV4',
             language: 'en',
           }}
-          textInputProps = {{
+          textInputProps={{
             InputComp: TextInput,
             underlineColor: 'transparent',
             activeUnderlineColor: 'white',
           }}
-          styles = {{ 
+          styles={{
             textInput: {
               backgroundColor: '#484848',
             }
-           }}
+          }}
         />
       </View>
       <Text style={styles.pumpword}>Pump:</Text>
-      <TextInput underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.pumpimput}></TextInput>
+      <TextInput onChangeText={(text) => setPump({pump : text})} underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.pumpimput}></TextInput>
+
       <Text style={styles.descriptionword}>Description:</Text>
-      <TextInput underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}></TextInput>
-      <View style={styles.submitcont}>
-        <Image source={require('../assets/sumbit.png')} />
-      </View>
+      <TextInput onChangeText={(text) => setDescription({description: text})} underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}></TextInput>
+      
+      <TouchableHighlight style={styles.submitcont} onPress = {() => getValue()}>
+        <Image width =  source={require('../assets/sumbit.png')} />
+      </TouchableHighlight>
 
     </View>
 
@@ -101,7 +110,9 @@ const styles = StyleSheet.create({
   },
   submitcont: {
     alignItems: 'center',
-    paddingTop: 119
+    marginTop: 119,
+    backgroundColor: 'red'
+    // paddingTop: 119
   },
   goback: {
     top: 22,
