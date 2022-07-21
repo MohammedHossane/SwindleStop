@@ -69,6 +69,14 @@ export default function App() {
                   headerShown: false,
                 }}
               />
+              
+              <Stack.Screen
+                name="Scan"
+                component={Scan}
+                options={{
+                  headerShown: false,
+                }}
+              />
 
               {/* here goes the other stuff for the pages like the report pages uk */}
 

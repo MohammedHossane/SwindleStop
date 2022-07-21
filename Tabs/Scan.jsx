@@ -1,20 +1,65 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight, Image, StatusBar } from "react-native";
 
-export default function Scan() {
+export default function Scan({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text> Hello from Scan</Text>
-      {/* <Image source={} /> */}
-      {/* <StatusBar style="auto" /> */}
+      <StatusBar translucent={true} backgroundColor="transparent" />
+      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+        <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
+          <Image source={require('../assets/Vector.png')} />
+        </TouchableHighlight>
+      </View>
+      <Text style={styles.putyopohonehere}> Put your phone up to the card receiver</Text>
+
+      <Image style={styles.radarrr} source={require('../assets/radarrrr.png')} />
+      <Image style={styles.claicktoascan} source={require('../assets/scanforskimmer.png')} />
+
+
+      <View>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#1F1F1F',
+    height: '100%'
   },
+  putyopohonehere: {
+    fontSize: 36,
+    // paddingTop: 62,
+    marginTop: 62,
+    // top: 62,
+    marginLeft: 25,
+    marginRight: 25,
+    color: '#FFFFFF',
+    alignItems: 'center',
+    textAlign: 'center',
+  },
+  radarrr: {
+    top: 74,
+    alignContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  claicktoascan: {
+    top: 140,
+    alignContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: 350,
+    height: 77,
+    borderRadius: 49
+  },
+  goback: {
+    top: 34,
+    right: 17,
+    paddingLeft: 13,
+    paddingRight: 13,
+    paddingTop: 13,
+    paddingBottom: 13
+  },
+
 });

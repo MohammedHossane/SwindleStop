@@ -69,7 +69,7 @@ export default function Map({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+      {/* <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Content maxWidth="400px">
           <Modal.CloseButton />
           <Modal.Header>Report Form</Modal.Header>
@@ -126,7 +126,7 @@ export default function Map({ navigation }) {
 
           </Modal.Footer>
         </Modal.Content>
-      </Modal>
+      </Modal> */}
       {isMapLoading === true ? (
         <Text style={styles.paragraph}>Waiting</Text>
       ) : null}
@@ -224,7 +224,9 @@ export default function Map({ navigation }) {
       >
         <View style={styles.contentContainer}>
           <View style={styles.btns}>
-            <TouchableHighlight style={styles.butt0n}><Image source={require('../assets/scanbutton.png')} /></TouchableHighlight>
+            <TouchableHighlight style={styles.butt0n} onPress={() => navigation.navigate("Scan")}>
+              <Image source={require('../assets/scanbutton.png')} />
+            </TouchableHighlight>
 
             <TouchableHighlight style={styles.butt0n} onPress={() => navigation.navigate("Report Form")}>
               <Image source={require('../assets/reportbutton.png')} />
@@ -244,9 +246,9 @@ export default function Map({ navigation }) {
                 navigation.navigate('Report1GS');
               }}>
                 <View>
-                <Text style={styles.textminute}> 1 min ago</Text>
-                <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
-                <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
+                  <Text style={styles.textminute}> 1 min ago</Text>
+                  <Text style={styles.texttitle}> Skimmer reported at pump <Text style={styles.textblue}>7</Text></Text>
+                  <Text style={styles.textlocation}> 2400 E Slauson Ave, Huntington Park, CA 20255</Text>
                 </View>
               </TouchableHighlight>
             </View>

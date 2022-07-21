@@ -91,7 +91,10 @@ const styles = StyleSheet.create({
     paddingTop: 34,
   },
   pumpimput: {
-    top: 9
+    top: 9,
+    backgroundColor: '#484848',
+    borderRadius: 5,
+    
   },
   descriptionword: {
     color: '#FFFFFF',

@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     paddingRight: 13,
     paddingTop: 13,
     paddingBottom: 13,
-    backgroundColor: 'red'
    },
    reporttext: {
     fontSize: 40,
