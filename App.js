@@ -16,6 +16,11 @@ import ReportATM from "./Tabs/ReportATM";
 import Report1ATM from "./ReportPages/Report1ATM";
 import Report1GS from "./ReportPages/Report1GS";
 
+//import report pages pages
+import ReportATMRep1 from "./ReportPagesPages/ReportATMRep1";
+import ReportGSRep1 from "./ReportPagesPages/ReportGSRep1";
+
+
 // ui kit
 import { NativeBaseProvider, Box, Modal } from "native-base";
 import { StyleSheet, Text, View, Image, StatusBar } from "react-native";
@@ -75,13 +80,32 @@ export default function App() {
                 }}
               />
 
-<Stack.Screen
+              <Stack.Screen
                 name="Report1GS"
                 component={Report1GS}
                 options={{
                   headerShown: false,
                 }}
               />
+
+              {/* here goes the report pages within the report pages */}
+
+              <Stack.Screen
+                name="ReportGSRep1"
+                component={ReportGSRep1}
+                options={{
+                  headerShown: false,
+                }}
+              />
+
+              <Stack.Screen
+                name="ReportATMRep1"
+                component={ReportATMRep1}
+                options={{
+                  headerShown: false,
+                }}
+              />
+
 
 
             </Stack.Navigator>

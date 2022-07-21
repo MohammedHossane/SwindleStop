@@ -21,8 +21,15 @@ export default function Report1ATM({ navigation }) {
 
       <Text style={styles.prevrep}> Previous Reports</Text>
 
-      <Text style={styles.date1}> Date: July 9th, 2022</Text>
-      <Text style={styles.desc1}> Description: ...</Text>
+
+      <TouchableHighlight style={styles.report1} onPress={() => {
+        navigation.navigate('ReportATMRep1');
+      }}>
+        <View>
+          <Text style={styles.date1}> Date: July 9th, 2022</Text>
+          <Text style={styles.desc1}> Description: ...</Text>
+        </View>
+      </TouchableHighlight>
 
       <View style={styles.smallahbar1}>
       </View>
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
   },
   skimmerlocation: {
     fontSize: 30,
-    paddingTop: 56,
+    paddingTop: 36,
     marginLeft: 13,
     color: '#FFFFFF'
   },
@@ -144,5 +151,6 @@ const styles = StyleSheet.create({
     paddingTop: 13,
     paddingBottom: 13
   },
-
+report1: {
+}
 });

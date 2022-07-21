@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableHighlight, Image, StatusBar } from "react-native";
 
-export default function Report1GS({ navigation }) {
+export default function ReportATMRep1({ navigation }) {
     return (
         <View style={styles.container}>
             <StatusBar translucent={true} backgroundColor="transparent" />
@@ -10,41 +10,19 @@ export default function Report1GS({ navigation }) {
                 </TouchableHighlight>
             </View>
             <Text style={styles.skimmerlocation}> Skimmer Location: </Text>
-            <Text style={styles.blueaddy}>2400 E Slauson Ave, Huntington Park, CA 90255 </Text>
+            <Text style={styles.blueaddy}>112 E Holly St Bellingham, WA 98225 </Text>
 
             <View style={styles.bigahbarcontainer1}>
                 <View style={styles.bigahbar1}>
                 </View>
             </View>
 
-            <Text style={styles.prevrep}> Previous Reports</Text>
+            <Text style={styles.datepump}> Date: July 9th, 2022 </Text>
+            <Text style={styles.desc1}> Description: ...</Text>
 
-            <TouchableHighlight style={styles.report1} onPress={() => {
-                navigation.navigate('ReportGSRep1');
-            }}>
-                <View>
-                    <Text style={styles.date1}> Date: July 9th, 2022</Text>
-                    <Text style={styles.desc1}> Pump Number: 7</Text>
-                    <Text style={styles.desc1}> Description: ...</Text>
-                </View>
-            </TouchableHighlight>
 
-            <View style={styles.smallahbar1}>
+            <View>
             </View>
-
-            <Text style={styles.date2}> Date: July 4th, 2022</Text>
-            <Text style={styles.desc1}> Pump Number: 2</Text>
-            <Text style={styles.desc2}> Description: ...</Text>
-
-            <Text style={styles.smallahbar2}> Bar goes here</Text>
-
-            <Text style={styles.date2}> Date: June 30th, 2022</Text>
-            <Text style={styles.desc1}> Pump Number: 1</Text>
-            <Text style={styles.desc2}> Description: ...</Text>
-
-            <Text style={styles.smallahbar2}> Bar goes here</Text>
-
-            <Text style={styles.payup}> To see past 30 days please buy a Membership.</Text>
         </View>
     );
 }
@@ -57,12 +35,12 @@ const styles = StyleSheet.create({
     },
     skimmerlocation: {
         fontSize: 30,
-        paddingTop: 56,
+        paddingTop: 36,
         marginLeft: 13,
         color: '#FFFFFF'
     },
     blueaddy: {
-        fontSize: 24,
+        fontSize: 30,
         marginLeft: 13,
         color: '#629FE7',
     },
@@ -82,13 +60,20 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignSelf: 'center'
     },
-    prevrep: {
+    datepump: {
         color: '#F2F2F2',
-        fontSize: 24,
+        fontSize: 30,
         paddingTop: 38,
         marginLeft: 13,
     },
+    datepump1: {
+        color: '#F2F2F2',
+        fontSize: 30,
+        marginLeft: 6,
+        
+    },
     report1: {
+        backgroundColor: 'red'
     },
     date1: {
         color: '#E1E1E1',
