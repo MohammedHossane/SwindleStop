@@ -17,7 +17,7 @@ const ReportATM = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar translucent={true} backgroundColor="transparent" />
-            <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+            <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: 22, marginRight: 6 }}>
                 <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
                     <Image source={require('../assets/Vector.png')} />
                 </TouchableHighlight>
@@ -153,8 +153,6 @@ const styles = StyleSheet.create({
         top: 258,
     },
     goback: {
-        top: 22,
-        right: 6,
         paddingLeft: 13,
         paddingRight: 13,
         paddingTop: 13,

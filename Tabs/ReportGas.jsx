@@ -19,7 +19,7 @@ const ReportGas = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} backgroundColor="transparent" />
-      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: 22, marginRight: 6 }}>
         <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
           <Image source={require('../assets/Vector.png')} />
         </TouchableHighlight>
@@ -56,10 +56,11 @@ const ReportGas = ({ navigation }) => {
 
       <Text style={styles.descriptionword}>Description:</Text>
       <TextInput onChangeText={(text) => setDescription({description: text})} underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}></TextInput>
-      
+   <View style={styles.submitcontview}>   
       <TouchableHighlight style={styles.submitcont} onPress = {() => getValue()}>
-        <Image width =  source={require('../assets/sumbit.png')} />
+        <Image style={styles.img} width = {{width:87}} height= {{height:31}} source={require('../assets/sumbit.png')} />
       </TouchableHighlight>
+      </View>
 
     </View>
 
@@ -110,17 +111,18 @@ const styles = StyleSheet.create({
   },
   submitcont: {
     alignItems: 'center',
-    marginTop: 119,
-    backgroundColor: 'red'
-    // paddingTop: 119
+    // marginTop: 119,
+   // paddingTop: 119
   },
   goback: {
-    top: 22,
-    right: 6,
     paddingLeft: 13,
     paddingRight: 13,
     paddingTop: 13,
     paddingBottom: 13
+  },
+
+  submitcontview:{
+    marginTop: 119,
   }
 });
 

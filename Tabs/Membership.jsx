@@ -2,49 +2,11 @@ import { StyleSheet, Text, View, TouchableHighlight, Image, StatusBar } from "re
 
 
 
-export default function Report1ATM({ navigation }) {
+export default function Membership({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} backgroundColor="transparent" />
-      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: 34, marginRight: 17 }}>
-        <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
-          <Image source={require('../assets/Vector.png')} />
-        </TouchableHighlight>
-      </View>
-      <Text style={styles.skimmerlocation}> Skimmer Location: </Text>
-      <Text style={styles.blueaddy}>112 E Holly St Bellingham, WA 98225 </Text>
 
-      <View style={styles.bigahbarcontainer1}>
-        <View style={styles.bigahbar1}>
-        </View>
-      </View>
-
-      <Text style={styles.prevrep}> Previous Reports</Text>
-
-
-      <TouchableHighlight style={styles.report1} onPress={() => {
-        navigation.navigate('ReportATMRep1');
-      }}>
-        <View>
-          <Text style={styles.date1}> Date: July 9th, 2022</Text>
-          <Text style={styles.desc1}> Description: ...</Text>
-        </View>
-      </TouchableHighlight>
-
-      <View style={styles.smallahbar1}>
-      </View>
-
-      <Text style={styles.date2}> Date: July 4th, 2022</Text>
-      <Text style={styles.desc2}> Description: ...</Text>
-
-      <Text style={styles.smallahbar2}> Bar goes here</Text>
-
-      <Text style={styles.date2}> Date: June 30th, 2022</Text>
-      <Text style={styles.desc2}> Description: ...</Text>
-
-      <Text style={styles.smallahbar2}> Bar goes here</Text>
-
-      <Text style={styles.payup}> To see past 30 days please buy a Membership.</Text>
     </View>
   );
 }

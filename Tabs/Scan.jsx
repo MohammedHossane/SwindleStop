@@ -4,7 +4,7 @@ export default function Scan({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar translucent={true} backgroundColor="transparent" />
-      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+      <View style={{ color: 'white', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end', marginTop: 34, marginRight: 17 }}>
         <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
           <Image source={require('../assets/Vector.png')} />
         </TouchableHighlight>
@@ -54,8 +54,6 @@ const styles = StyleSheet.create({
     borderRadius: 49
   },
   goback: {
-    top: 34,
-    right: 17,
     paddingLeft: 13,
     paddingRight: 13,
     paddingTop: 13,

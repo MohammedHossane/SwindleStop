@@ -69,64 +69,6 @@ export default function Map({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <Modal.Content maxWidth="400px">
-          <Modal.CloseButton />
-          <Modal.Header>Report Form</Modal.Header>
-          <Modal.Header>Skimmer Type</Modal.Header>
-          <Modal.Body>
-
-            <View>
-              <ScrollView>
-                <View>
-                  <TouchableRipple onPress={() => setChecked('normal')}>
-                    <View style={styles.row}>
-                      <View pointerEvents="none">
-                        <RadioButton
-                          value="normal"
-                          status={checked === 'normal' ? 'checked' : 'unchecked'}
-                        />
-                      </View>
-                      <TextComponent isSubheading style={styles.text}>
-                        ATM
-                      </TextComponent>
-                    </View>
-                  </TouchableRipple>
-                  <TouchableRipple onPress={() => setChecked('second')}>
-                    <View style={styles.row}>
-                      <View pointerEvents="none">
-                        <RadioButton
-                          value="second"
-                          status={checked === 'second' ? 'checked' : 'unchecked'}
-                        />
-                      </View>
-                      <TextComponent isSubheading style={styles.text}>
-                        Gas Station
-                      </TextComponent>
-                    </View>
-                  </TouchableRipple>
-
-                </View>
-              </ScrollView>
-            </View>
-
-          </Modal.Body>
-          <Modal.Footer>
-
-            <Button onPress={() => {
-              setShowModal(false);
-            }}>
-              Cancel
-            </Button>
-            <Button onPress={() => {
-              setShowModal(false);
-            }}>
-              Submit
-            </Button>
-
-          </Modal.Footer>
-        </Modal.Content>
-      </Modal> */}
       {isMapLoading === true ? (
         <Text style={styles.paragraph}>Waiting</Text>
       ) : null}
@@ -147,10 +89,11 @@ export default function Map({ navigation }) {
           initialRegion={mapRegion}
           customMapStyle={mapStyle}
         >
-          {/* <Marker coordinate = {{latitude: 34.039660,longitude: -118.378700}}
-     pinColor = {"red"} // any color
-     title={"Angel's House"}
-     description={"This is where Angel lives."}/>   */}
+          
+          <Marker coordinate={{ latitude: 34.039660, longitude: -118.378700 }}
+            pinColor={"red"} // any color
+            title={"Angel's House"}
+            description={"This is where Angel lives."} />
 
           <Marker
             coordinate={{ latitude: 34.03308, longitude: -118.29202 }}

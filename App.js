@@ -20,6 +20,8 @@ import Report1GS from "./ReportPages/Report1GS";
 import ReportATMRep1 from "./ReportPagesPages/ReportATMRep1";
 import ReportGSRep1 from "./ReportPagesPages/ReportGSRep1";
 
+//membership page
+import Membership from "./Tabs/Membership";
 
 // ui kit
 import { NativeBaseProvider, Box, Modal } from "native-base";
@@ -114,7 +116,15 @@ export default function App() {
                 }}
               />
 
+{/* map page */}
 
+<Stack.Screen
+                name="Membership"
+                component={Membership}
+                options={{
+                  headerShown: true,
+                }}
+              />
 
             </Stack.Navigator>
           </NavigationContainer>
