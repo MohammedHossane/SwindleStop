@@ -122,7 +122,7 @@ export default function App() {
                 name="Membership"
                 component={Membership}
                 options={{
-                  headerShown: true,
+                  headerShown: false,
                 }}
               />
 

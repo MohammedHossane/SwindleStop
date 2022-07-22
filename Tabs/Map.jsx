@@ -16,7 +16,7 @@ import {
   Portal,
   Dialog,
 } from "react-native-paper";
-import { Modal } from "native-base";
+import { Modal, Overlay } from "native-base";
 import { TextComponent } from '../components/DialogTextComponent';
 // import { TouchableHighlight } from "react-native-gesture-handler";
 
@@ -69,6 +69,8 @@ export default function Map({ navigation }) {
 
   return (
     <View style={styles.container}>
+
+    {/* <Text style = {{color: 'red', fontSize: 30, top: 200, zIndex: 1}}> Hello does this work?  </Text> */}
       {isMapLoading === true ? (
         <Text style={styles.paragraph}>Waiting</Text>
       ) : null}
@@ -76,6 +78,7 @@ export default function Map({ navigation }) {
       {errorMsg ? <Text style={styles.paragraph}>{errorMsg}</Text> : null}
 
       {mapRegion === null ? null : (
+        <>
         <MapView
           style1={styles.mapStyle}
           initialRegion1={{
@@ -89,7 +92,7 @@ export default function Map({ navigation }) {
           initialRegion={mapRegion}
           customMapStyle={mapStyle}
         >
-          
+
           <Marker coordinate={{ latitude: 34.039660, longitude: -118.378700 }}
             pinColor={"red"} // any color
             title={"Angel's House"}
@@ -119,6 +122,10 @@ export default function Map({ navigation }) {
             image={require('../assets/Group236.png')}
           />
         </MapView>
+        <TouchableHighlight style={styles.membbut} onPress={() => navigation.navigate("Membership")}>
+              <Image source={require('../assets/memb.png')} />
+            </TouchableHighlight> 
+        </>
       )}
       <BottomSheet
         style={styles.scrollthing}
@@ -166,6 +173,11 @@ export default function Map({ navigation }) {
         onChange={handleSheetChanges}
       >
         <View style={styles.contentContainer}>
+          {/* <View style={styles.member}>
+            <TouchableHighlight style={styles.membbut} onPress={() => navigation.navigate("Membership")}>
+              <Image source={require('../assets/memb.png')} />
+            </TouchableHighlight>
+          </View> */}
           <View style={styles.btns}>
             <TouchableHighlight style={styles.butt0n} onPress={() => navigation.navigate("Scan")}>
               <Image source={require('../assets/scanbutton.png')} />
@@ -339,6 +351,12 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
+  membbut: {
+    position: "absolute",
+    left: 10,
+    top: 30
+
+  }
 
 });
 
