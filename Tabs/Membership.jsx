@@ -8,6 +8,9 @@ export default function Membership({ navigation }) {
                 <TouchableHighlight style={styles.goback} onPress={() => navigation.goBack()}>
                     <Image source={require('../assets/Vector.png')} />
                 </TouchableHighlight>
+                <View style={styles.membcont}>
+                    <Text style={styles.membtext}> Membership</Text>
+                </View>
             </View>
         </View>
     );
@@ -25,4 +28,7 @@ const styles = StyleSheet.create({
         paddingTop: 13,
         paddingBottom: 13,
     },
+    membcont: {
+        
+    }
 });
