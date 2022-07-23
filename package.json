@@ -39,7 +39,8 @@
     "react-native-textinput-effects": "^0.6.2",
     "react-native-web": "0.17.7",
     "react-navigation": "^4.4.4",
-    "throttle-debounce": "^5.0.0"
+    "throttle-debounce": "^5.0.0",
+    "with-rn-bluetooth-classic": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

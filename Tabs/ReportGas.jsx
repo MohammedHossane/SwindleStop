@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextInput } from 'react-native-paper';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { StyleSheet, Constants, View, Text, Image, StatusBar } from 'react-native';
+import { StyleSheet, Constants, View, Text, Image, StatusBar,  } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Sae } from 'react-native-textinput-effects';
@@ -53,10 +53,10 @@ const ReportGas = ({ navigation }) => {
         />
       </View>
       <Text style={styles.pumpword}>Pump:</Text>
-      <TextInput onChangeText={(text) => setPump({pump : text})} underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.pumpimput}></TextInput>
+      <TextInput onChangeText={(text) => setPump({pump : text})} underlineColor={'transparent'} activeUnderlineColor={'white'} style={styles.pumpimput} keyboardType="number-pad" />
 
       <Text style={styles.descriptionword}>Description:</Text>
-      <TextInput onChangeText={(text) => setDescription({description: text})} underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}></TextInput>
+      <TextInput onChangeText={(text) => setDescription({description: text})} underlineColor={'transparent'} multiline={true} style={styles.pumpimput} activeUnderlineColor={'white'}/>
    <View style={styles.submitcontview}>   
       <TouchableHighlight style={styles.submitcont} onPress = {() => getValue()}>
         <Image style={styles.img} width = {{width:87}} height= {{height:31}} source={require('../assets/sumbit.png')} />
