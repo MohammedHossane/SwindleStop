@@ -12,6 +12,7 @@ const ReportATM = ({ navigation }) => {
 
     const getValue = () => {
         console.log(location, description)
+        navigation.navigate('Map')
     }
 
     return (

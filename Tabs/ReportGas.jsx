@@ -14,6 +14,7 @@ const ReportGas = ({ navigation }) => {
 
   const getValue = () => {
     console.log(location, description, pump)
+    navigation.navigate('Map')
 }
 
   return (
