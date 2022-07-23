@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   skimmerlocation: {
     fontSize: 30,
-    paddingTop: 36,
+    paddingTop: 6,
     marginLeft: 13,
     color: '#FFFFFF'
   },

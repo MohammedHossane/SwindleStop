@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   putyopohonehere: {
     fontSize: 36,
     // paddingTop: 62,
-    marginTop: 62,
+    marginTop: 42,
     // top: 62,
     marginLeft: 25,
     marginRight: 25,
